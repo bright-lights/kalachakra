@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import MeditationImage from "./components/MeditationImage";
+import "./App.css";
+import ah_hum_om_medium from "./assets/ah_hum_om_medium.gif";
+import MeditationTimer from "./components/Timer";
+import Settings from "./components/Settings";
 
 function App() {
+  const [time, setTime] = useState(2400000);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <MeditationImage selectedImage={ah_hum_om_medium}></MeditationImage>
+      <MeditationTimer time={time}></MeditationTimer>
+      <Settings setTime={(timeArg) => { setTime(timeArg) }}></Settings>
     </div>
   );
 }
